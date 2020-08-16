@@ -15,8 +15,15 @@ class Team extends Model
         'name'
     ];
 
+    /** A team has many users */
     public function users()
     {
         return $this->hasMany(User::class);
+    }
+
+    /** A team has many contacts */
+    public function contacts()
+    {
+        return $this->hasMany(Contact::class)->with('customAttributes');
     }
 }

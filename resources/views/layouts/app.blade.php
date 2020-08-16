@@ -34,6 +34,9 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
+                            <a href="{{ route('contacts') }}" class="nav-link">Contacts</a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ route('import-contacts') }}" class="nav-link">Import Contacts</a>
                         </li>
                     </ul>

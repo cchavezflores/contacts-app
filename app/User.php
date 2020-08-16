@@ -37,6 +37,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /** A user belongs to a team */
     public function team()
     {
         return $this->belongsTo(Team::class);

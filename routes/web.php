@@ -20,4 +20,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/contacts/import', 'ContactsController@import')->name('import-contacts');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/contacts', 'ContactsController@index')->name('contacts');
+    Route::get('/contacts/import', 'ContactsController@import')->name('import-contacts');
+    Route::post('/contacts/upload', 'ContactsController@upload');
+    Route::post('/contacts/store', 'ContactsController@store');
+});
