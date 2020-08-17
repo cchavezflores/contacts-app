@@ -38620,11 +38620,11 @@ var render = function() {
                         "div",
                         { key: attribute.id, staticClass: "row" },
                         [
-                          _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "col-md-4" }, [
                             _vm._v(_vm._s(_vm._f("titleCase")(attribute.key)))
                           ]),
                           _vm._v(" "),
-                          _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "col-md-8" }, [
                             _vm._v(_vm._s(attribute.value))
                           ])
                         ]

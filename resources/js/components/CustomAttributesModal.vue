@@ -14,8 +14,8 @@
                             </div>
                             <div class="modal-body">
                                 <div class="row" v-for="attribute in contact.custom_attributes" :key="attribute.id">
-                                    <div class="col-md-6">{{ attribute.key | titleCase }}</div>
-                                    <div class="col-md-6">{{ attribute.value }}</div>
+                                    <div class="col-md-4">{{ attribute.key | titleCase }}</div>
+                                    <div class="col-md-8">{{ attribute.value }}</div>
                                 </div>
                             </div>
                             <div class="modal-footer">
