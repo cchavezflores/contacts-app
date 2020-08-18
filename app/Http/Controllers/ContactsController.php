@@ -10,17 +10,30 @@ use Illuminate\Support\Facades\Auth;
 
 class ContactsController extends Controller
 {
+    /**
+     * Return the contacts view with the current team's contacts
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         $contacts = Auth::user()->team->contacts;
         return view('contacts.index', compact('contacts'));
     }
 
+    /**
+     * Return the import view
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function import()
     {
         return view('contacts.import');
     }
 
+    /**
+     * Get columns from CSV and return them so they can be mapped
+     * @param Request $request
+     * @return mixed
+     */
     public function upload(Request $request)
     {
         $csv = array_map('str_getcsv', file($request->file));
@@ -36,6 +49,11 @@ class ContactsController extends Controller
         return $result;
     }
 
+    /**
+     * Store the contacts and related custom attributes to database
+     * @param Request $request
+     * @return int
+     */
     public function store(Request $request)
     {
         $rows = array_map('str_getcsv', file($request->file));
@@ -64,6 +82,7 @@ class ContactsController extends Controller
                 ]);
             }
         }
+
         return count($rows);
     }
 }
